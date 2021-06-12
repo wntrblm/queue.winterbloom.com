@@ -38,7 +38,7 @@ ss = Shipstation(API_KEY, API_SECRET)
 orders = ss.list_orders(order_status="awaiting_shipment", store_id=STORE_ID, page_size=500)
 
 
-with open("site/queue.md", "w") as fh:
+with open("docs/queue.md", "w") as fh:
     print("| position in queue | order number | order date |", file=fh)
     print("| - | - | - |", file=fh)
 
