@@ -18,9 +18,8 @@ markdown_extensions:
     - pymdownx.magiclink
     - md_in_html
     - markdown_link_attr_modifier:
-          external_only: True
+          new_tab: "external_only"
           custom_attrs:
-              rel: "noopener"
               referrerpolicy: "origin"
 plugins:
     - "include-markdown"
