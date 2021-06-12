@@ -23,6 +23,6 @@ markdown_extensions:
               rel: "noopener"
               referrerpolicy: "origin"
 plugins:
-    - include-markdown
+    - "include-markdown"
 nav:
     - "Queue": index.md
