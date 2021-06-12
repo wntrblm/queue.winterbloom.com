@@ -1,0 +1,4 @@
+site/
+docs/table.md
+__pycache__
+.vscode/

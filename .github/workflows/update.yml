@@ -1,0 +1,25 @@
+name: CI
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron: '0 0 * * *'
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+      - name: Generate table
+        env:
+          SS_API_KEY: ${{ secrets.SS_API_KEY }}
+          SS_API_SECRET: ${{ secrets.SS_API_SECRET }}
+          SS_STORE_ID: ${{ secrets.SS_STORE_ID }}
+        run: python3 generate.py
+      - name: MkDocs publish
+        run: mkdocs gh-deploy --force
