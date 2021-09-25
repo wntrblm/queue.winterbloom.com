@@ -88,7 +88,7 @@ def generate_preorder_list(ss):
     orders = ss.list_orders(order_status="on_hold", store_id=STORE_ID, page_size=500)
 
     with open("docs/preorder-queue.md", "w") as fh:
-        print("| position in queue | order number | order date | held until |", file=fh)
+        print("| position in queue | order number | order date |", file=fh)
         print("| - | - | - | - |", file=fh)
 
         for n, order in enumerate(orders["orders"], 1):
@@ -96,7 +96,7 @@ def generate_preorder_list(ss):
             hold_date = datetime.datetime.fromisoformat(order["holdUntilDate"].rsplit(".", 1)[0]).date()
             combined = "<sup title='This order was combined with another'>*</sup>" if order["advancedOptions"]["mergedOrSplit"] else ""
 
-            print(f"| {n} | #{order['orderNumber']} {combined} | {order_date} | {hold_date} |", file=fh)
+            print(f"| {n} | #{order['orderNumber']} {combined} | {order_date} |", file=fh)
 
 def main():
     ss = Shipstation(API_KEY, API_SECRET)

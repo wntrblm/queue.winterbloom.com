@@ -8,13 +8,15 @@ If you have any questions or concerns, please feel free to [send us an email](ma
 
 ## Shipping queue
 
+This queue is for orders that contain items that are in stock, basically, no pre-orders. The pre-order queue is [in the next section](#pre-order-queue).
+
 {%
    include-markdown "queue.md"
 %}
 
 ## Pre-order queue
 
-Pre-orders are placed in a separate queue. Once we're ready to start shipping, these orders will move to the shipping queue. Please note that the "held until" date is an estimate of when we will have the items in stock to fulfill the order, it's not an estimate of when the order will ship.
+Pre-orders are placed in a separate queue. Once we're ready to start shipping, these orders will move to the shipping queue.
 
 {%
    include-markdown "preorder-queue.md"
