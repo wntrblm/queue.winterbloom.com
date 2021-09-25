@@ -89,7 +89,7 @@ def generate_preorder_list(ss):
 
     with open("docs/preorder-queue.md", "w") as fh:
         print("| position in queue | order number | order date |", file=fh)
-        print("| - | - | - | - |", file=fh)
+        print("| - | - | - |", file=fh)
 
         for n, order in enumerate(orders["orders"], 1):
             order_date = datetime.datetime.fromisoformat(order["orderDate"].rsplit(".", 1)[0]).date()
