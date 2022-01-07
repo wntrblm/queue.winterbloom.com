@@ -1,4 +1,4 @@
-We have shipped **2** orders over the last month, and the last order we shipped went out on December 15.
+We have shipped **8** orders over the last month, and the last order we shipped went out on January 5.
 
 
 | position in queue | order number | order date |

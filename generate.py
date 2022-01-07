@@ -62,13 +62,20 @@ def list_stores(ss):
 
 def count_shipped_orders_over_last_month(ss):
     start_date = (datetime.date.today() - datetime.timedelta(days=31)).strftime("%Y-%m-%d")
-    shipments = ss.list_shipments(store_id=STORE_IDS, page_size=500, ship_date_start=start_date)
 
-    last_ship_date = shipments["shipments"][-1]["shipDate"]
+    shipments = []
+
+    for store_id in STORE_IDS:
+        results = ss.list_shipments(store_id=store_id, page_size=500, ship_date_start=start_date)
+        shipments.extend(results["shipments"])
+
+    shipments.sort(key=lambda x: x["shipDate"])
+
+    last_ship_date = shipments[-1]["shipDate"]
     last_ship_date = datetime.datetime.strptime(last_ship_date, "%Y-%m-%d")
     last_ship_date = f"{last_ship_date:%B} {last_ship_date.day}"
 
-    return len(shipments["shipments"]), last_ship_date
+    return len(shipments), last_ship_date
 
 def generate_order_list(ss):
     shipped_in_last_month, last_shipped = count_shipped_orders_over_last_month(ss)
