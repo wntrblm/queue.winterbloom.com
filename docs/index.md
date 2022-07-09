@@ -18,9 +18,6 @@ This queue is for orders that contain items that are in stock, basically, no pre
 
 Pre-orders are placed in a separate queue. Once we're ready to start shipping, these orders will move to the shipping queue.
 
-!!! note "When will my order ship?"
-    Hydrogen and Helium pre-orders are still expected to ship in February. We had a delay with the remainder of our front panels and we're awaiting their arrival. Once those get here we'll be able to ship all of those pre-orders quickly, since that's the last step in assembly for us.
-
 
 {%
    include-markdown "preorder-queue.md"
